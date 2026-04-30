@@ -21,7 +21,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
     res.status(200).send("Curso de Node.js");
-})
+});
 
 app.get("/livros", (req, res) => {
     res.status(200).json(livros)
@@ -31,7 +31,7 @@ app.get("/livros", (req, res) => {
 app.get("/livros/:id", (req, res) => {
     const index = buscaLivro(req.params.id);
     res.status(200).json(livros[index]);
-})
+});
 
 app.post("/livros", (req, res) =>
 {
@@ -43,7 +43,7 @@ app.put("/livros/:id", (req, res) =>{
     const index = buscaLivro(req.params.id);
     livros[index].titulo = req.body.titulo;
     res.status(200).json(livros);
-})
+});
 
 app.delete("/livros/:id", (req, res) =>{
     const index = buscaLivro(req.params.id);
@@ -53,3 +53,4 @@ app.delete("/livros/:id", (req, res) =>{
 );
 
 export default app
+/* mongodb+srv://admin:<db_password>@cluster0.cyflbnp.mongodb.net/?appName=Cluster0 */
